@@ -5,6 +5,7 @@ import {
 } from './courseSlice';
 
 import { Category } from './category';
+import { Loader } from "../../components/loader";
 
 export const CategoryList = () => {
     const courses = useSelector(selectCourses);
@@ -29,9 +30,11 @@ export const CategoryList = () => {
             groupedCourses[category].push(course);
         });
 
-        content = Object.keys(groupedCourses).map((category) => (
-            <Category key={category} category={category} courses={groupedCourses[category]} />
+        content = Object.keys(groupedCourses).map((category, index) => (
+            <Category key={index} category={category} courses={groupedCourses[category]} />
         ));
+    } else {
+        content = <Loader />;
     }
 
     return (

@@ -2,7 +2,7 @@
 import { Course } from "./course";
 export const Category = ({ category, courses }) => {
     const imageUrl = `images/${category}.png`;
-    const content = courses.map((course) => (<Course key={course.category} course={course} />))
+    const content = courses.map((course, index) => (<Course key={index} course={course} />))
 
     return (
         <div className="row course p-0">
